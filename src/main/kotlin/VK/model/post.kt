@@ -1,5 +1,8 @@
 package VK.model
 
+import VK.model.attachments.AttachementType
+import VK.model.attachments.Attachment
+
 data class post(
     val id: Int,
     val ownerID: Int,
@@ -21,5 +24,6 @@ data class post(
     val canEdit: Boolean,
     val isPinned:Boolean,
     val markedAsAds: Boolean,
-    val postponedID: Int
+    val postponedID: Int,
+    val attachments: Array<Attachment?>
 )

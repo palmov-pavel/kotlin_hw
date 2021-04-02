@@ -1,10 +1,10 @@
 package VK.service
 
+import VK.model.attachments.LinkAttachment
 import VK.model.comment
 import VK.model.like
 import VK.model.post
 import VK.model.repost
-import network_activity.MinutesToText
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -38,7 +38,8 @@ class WallServiceTest {
             canEdit = false,
             isPinned = false,
             markedAsAds = false,
-            postponedID = 1
+            postponedID = 1,
+            attachments = arrayOf(null)
         )
 
         // act
@@ -76,7 +77,8 @@ class WallServiceTest {
             canEdit = false,
             isPinned = false,
             markedAsAds = false,
-            postponedID = 1
+            postponedID = 1,
+            attachments = arrayOf(null)
         )
 
         val updateMainPost = post(
@@ -100,7 +102,8 @@ class WallServiceTest {
             canEdit = false,
             isPinned = false,
             markedAsAds = false,
-            postponedID = 1
+            postponedID = 1,
+            attachments = arrayOf(null)
         )
 
         val mainPostOnWall = Wall.add(mainPost);
@@ -141,7 +144,8 @@ class WallServiceTest {
             canEdit = false,
             isPinned = false,
             markedAsAds = false,
-            postponedID = 1
+            postponedID = 1,
+            attachments = arrayOf(null)
         )
 
         val updateMainPost = post(
@@ -165,7 +169,8 @@ class WallServiceTest {
             canEdit = false,
             isPinned = false,
             markedAsAds = false,
-            postponedID = 1
+            postponedID = 1,
+            attachments = arrayOf(null)
         )
 
         val mainPostOnWall = Wall.add(mainPost);
@@ -178,5 +183,49 @@ class WallServiceTest {
         assertFalse(result)
 
     }
+
+    @Test
+    fun addAttachment_positive() {
+
+        // arrange
+        var Wall = WallService()
+        val link1: LinkAttachment = LinkAttachment("http:\\abc.ru", "ABC", "abc", "xxx", null, null, null, null, null)
+
+        val mainPost = post(
+            id = 1,
+            ownerID = 2,
+            formID = 3,
+            createdBy = 4,
+            date = 6,
+            text = "мой первый пост VK",
+            replyOwnerId = 0,
+            replyPostId = 0,
+            friendsOnly = false,
+            comments = comment(),
+            copyright = "xxx",
+            likes = like(),
+            reposts = repost(),
+            postType = "xxx",
+            valSignerID = 1,
+            camPin = false,
+            canDelete = false,
+            canEdit = false,
+            isPinned = false,
+            markedAsAds = false,
+            postponedID = 1,
+            attachments = arrayOf(null)
+        )
+
+        val mainPostOnWall = Wall.add(mainPost);
+
+
+        // act
+        val result = Wall.addAttachment(mainPostOnWall, link1)
+
+        // assert
+        assertTrue(result)
+
+    }
+
 
 }

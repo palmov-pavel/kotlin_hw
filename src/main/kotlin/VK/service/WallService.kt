@@ -1,5 +1,6 @@
 package VK.service
 
+import VK.model.attachments.*
 import VK.model.comment
 import VK.model.like
 import VK.model.post
@@ -61,4 +62,33 @@ class WallService {
 
         return result
     }
+
+
+    fun addAttachment(updPost: post, obj: ObjectType): Boolean {
+        var attachment : Attachment? = null
+        var result: Boolean = false
+
+        when (obj) {
+            is PhotoAttachment ->  attachment = Attachment (AttachementType.photo, obj)
+            is AudioAttachment ->  attachment = Attachment (AttachementType.audio, obj)
+            is VideoAttachment -> attachment = Attachment (AttachementType.video, obj)
+            is DocAttachment -> attachment = Attachment (AttachementType.doc, obj)
+            is LinkAttachment -> attachment = Attachment (AttachementType.link, obj)
+            else -> attachment = Attachment (AttachementType.other, obj)
+        }
+
+        for ((index, post) in posts.withIndex()) {
+            if ((post.id == updPost.id) && ((post.ownerID == updPost.ownerID))) {
+                posts[index] = post.copy(attachments = post.attachments!!.plus(attachment)
+                )
+                result = true
+                break
+            } else {
+                result = false
+            }
+        }
+        return result
+    }
+
+
 }
