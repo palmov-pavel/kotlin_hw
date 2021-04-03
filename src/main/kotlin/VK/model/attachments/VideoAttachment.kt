@@ -3,6 +3,7 @@ package VK.model.attachments
 import sun.audio.AudioPlayer
 
 class VideoAttachment(
+    override val objType: AttachementType = AttachementType.photo,
     val id: Int,
     val ownerID: Int,
     val title: String,
@@ -31,9 +32,9 @@ class VideoAttachment(
     val live: Boolean,
     val uncoming: Boolean,
     val isFavorite: Boolean
-) : ObjectType {
+) : Attachment {
 
     override fun toString(): String {
-        return "id = " + id + ", title = " + title
+        return "{type = $objType, id = $id, title = $title}"
     }
 }

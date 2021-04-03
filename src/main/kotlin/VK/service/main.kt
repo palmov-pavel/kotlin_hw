@@ -95,13 +95,13 @@ fun main() {
     }
 
 
-    val link1: LinkAttachment = LinkAttachment("http:\\abc.ru", "ABC", "abc", "xxx", null, null, null, null, null)
-    val photo1: PhotoAttachment = PhotoAttachment(1, 33, 111, 222, "", 1, 1024,1024)
-    val audio1: AudioAttachment = AudioAttachment(2,1,"Sting",  "Desert Rose", 120,"http:\\abc.ru", 1, 1, 1, 1, true, true)
-    val doc1: DocAttachment =  DocAttachment(3, 1,"note.docx",11,"", "http:\\abc.ru", 1, 1, null)
+    val link1: LinkAttachment = LinkAttachment(AttachementType.link,"http:\\abc.ru", "ABC", "abc", "xxx", null, null, null, null, null)
+    val photo1: PhotoAttachment = PhotoAttachment(AttachementType.photo,1, 33, 111, 222, "", 1, 1024,1024)
+    val audio1: AudioAttachment = AudioAttachment(AttachementType.audio,2,1,"Sting",  "Desert Rose", 120,"http:\\abc.ru", 1, 1, 1, 1, true, true)
+    val doc1: DocAttachment =  DocAttachment(AttachementType.doc,3, 1,"note.docx",11,"", "http:\\abc.ru", 1, 1, null)
 
     val video1: VideoAttachment = VideoAttachment(
-        4, 1, "Буратино", "", 2400, "", "", "", "", "", "", "", "",
+        AttachementType.video,4, 1, "Буратино", "", 2400, "", "", "", "", "", "", "", "",
         "", "", 222, 1, 1, 1, "", true, true, false, "", false, false, false, true
     )
 
@@ -128,7 +128,7 @@ fun main() {
         isPinned = false,
         markedAsAds = false,
         postponedID = 1,
-        attachments = arrayOf(Attachment(AttachementType.link, link1), Attachment(AttachementType.photo, photo1), Attachment(AttachementType.audio, audio1)  )
+        attachments = arrayOf(link1, photo1, audio1)
     )
 
     println(Wall.add(mainPost4))

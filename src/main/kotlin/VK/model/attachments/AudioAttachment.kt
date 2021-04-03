@@ -3,21 +3,22 @@ package VK.model.attachments
 import java.time.Duration
 
 class AudioAttachment(
+    override val objType: AttachementType = AttachementType.audio,
     val id: Int,
-    val owner_id: Int,
+    val ownerId: Int,
     val artist: String,
     val title: String,
     val duration: Int,
     val url: String,
     val lyricsID: Int,
-    val album_id: Int,
+    val albumId: Int,
     val genreID: Int,
     val date: Int,
     val noSearch: Boolean,
     val isHQ: Boolean
-) : ObjectType {
+) : Attachment {
 
     override fun toString(): String {
-        return "id = " + id + ", title = " + title
+        return "{type = $objType, id = $id, title = $title}"
     }
 }

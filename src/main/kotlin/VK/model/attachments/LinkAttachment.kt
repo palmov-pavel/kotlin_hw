@@ -3,6 +3,7 @@ package VK.model.attachments
 import javax.swing.AbstractButton
 
 class LinkAttachment(
+    override val objType: AttachementType = AttachementType.link,
     val url: String,
     val title: String,
     val caption: String,
@@ -12,10 +13,10 @@ class LinkAttachment(
     val button: ObjectType?,
     val previewPage: String?,
     val previewUrl: String?
-) : ObjectType {
+) : Attachment {
 
     override fun toString(): String {
-        return "url = " + url + ", title = " + title
+        return "{type = $objType, url = $url, title = $title}"
     }
 
 }

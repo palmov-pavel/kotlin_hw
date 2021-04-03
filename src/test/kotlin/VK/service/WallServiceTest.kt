@@ -1,5 +1,6 @@
 package VK.service
 
+import VK.model.attachments.AttachementType
 import VK.model.attachments.LinkAttachment
 import VK.model.comment
 import VK.model.like
@@ -189,7 +190,7 @@ class WallServiceTest {
 
         // arrange
         var Wall = WallService()
-        val link1: LinkAttachment = LinkAttachment("http:\\abc.ru", "ABC", "abc", "xxx", null, null, null, null, null)
+        val link1: LinkAttachment = LinkAttachment(AttachementType.link,"http:\\abc.ru", "ABC", "abc", "xxx", null, null, null, null, null)
 
         val mainPost = post(
             id = 1,
