@@ -4,6 +4,9 @@ import VK.model.attachments.*
 import VK.model.Like
 import VK.model.Post
 import VK.model.Repost
+import VK.model.comments.Comment
+import VK.model.myExceptions.PostNotFoundException
+import java.lang.Exception
 
 fun main() {
 
@@ -138,4 +141,20 @@ fun main() {
     } else {
         println("не нашли")
     }
+
+
+
+    val comment = Comment(1,1,1,"Hello", null, 1, 1, arrayOf(null), arrayOf(null), null)
+
+
+    try {
+        Wall.createComment(1, 1, 0, null, 1, arrayOf(null), 1, "1abc", comment)
+    } catch (e: PostNotFoundException) {
+        println(e.message)
+    } catch (e: Exception) {
+        println(e.message)
+    } finally {
+        println("finally")
+    }
+
 }

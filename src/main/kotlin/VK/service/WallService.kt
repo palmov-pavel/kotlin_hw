@@ -91,9 +91,11 @@ class WallService {
         guid: String,
         comment: Comment
     ) {
+        if (posts.isEmpty()) throw PostNotFoundException("Пост с id=$postId не найден")
         for (post in posts) {
             if (post.id == postId) {
                 comments += comment
+                break
             } else throw PostNotFoundException("Пост с id=$postId не найден")
         }
     }
