@@ -1,7 +1,7 @@
 package VK.model.attachments
 
 class PhotoAttachment(
-    override val objType: AttachementType = AttachementType.photo,
+    override val type: AttachementType = AttachementType.photo,
     val id: Int,
     val albumId: Int,
     val ownerId: Int,
@@ -13,6 +13,6 @@ class PhotoAttachment(
 ) : Attachment {
 
     override fun toString(): String {
-        return "{type = $objType, id = $id, text = $text}"
+        return "{type = $type, id = $id, text = $text}"
     }
 }

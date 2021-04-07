@@ -3,7 +3,7 @@ package VK.model.attachments
 import java.time.Duration
 
 class AudioAttachment(
-    override val objType: AttachementType = AttachementType.audio,
+    override val type: AttachementType = AttachementType.audio,
     val id: Int,
     val ownerId: Int,
     val artist: String,
@@ -19,6 +19,6 @@ class AudioAttachment(
 ) : Attachment {
 
     override fun toString(): String {
-        return "{type = $objType, id = $id, title = $title}"
+        return "{type = $type, id = $id, title = $title}"
     }
 }
