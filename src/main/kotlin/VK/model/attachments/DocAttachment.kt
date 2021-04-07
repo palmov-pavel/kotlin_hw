@@ -1,7 +1,7 @@
 package VK.model.attachments
 
 class DocAttachment(
-    override val objType: AttachementType = AttachementType.doc,
+    override val type: AttachementType = AttachementType.doc,
     val id: Int,
     val ownerId: Int,
     val title:String,
@@ -9,12 +9,12 @@ class DocAttachment(
     val ext:String,
     val url:String,
     val date: Int,
-    val type: Int,
+    val docType: Int,
     val preview : ObjectType?
 ) :Attachment {
 
     override fun toString(): String {
-        return "{type = $objType, id = $id, title = $title}"
+        return "{type = $type, id = $id, title = $title}"
     }
 
 }
