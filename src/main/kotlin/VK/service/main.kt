@@ -1,16 +1,15 @@
 package VK.service
 
 import VK.model.attachments.*
-import VK.model.comment
-import VK.model.like
-import VK.model.post
-import VK.model.repost
+import VK.model.Like
+import VK.model.Post
+import VK.model.Repost
 
 fun main() {
 
     var Wall = WallService()
 
-    val mainPost = post(
+    val mainPost = Post(
         id = 0,
         ownerID = 2,
         formID = 3,
@@ -20,10 +19,10 @@ fun main() {
         replyOwnerId = 0,
         replyPostId = 0,
         friendsOnly = false,
-        comments = comment(),
+        comments = null,
         copyright = "xxx",
-        likes = like(),
-        reposts = repost(),
+        likes = Like(),
+        reposts = Repost(),
         postType = "xxx",
         valSignerID = 1,
         camPin = false,
@@ -37,7 +36,7 @@ fun main() {
 
     println(Wall.add(mainPost))
 
-    val mainPost2 = post(
+    val mainPost2 = Post(
         id = 333,
         ownerID = 888,
         formID = 3,
@@ -47,10 +46,10 @@ fun main() {
         replyOwnerId = 0,
         replyPostId = 0,
         friendsOnly = false,
-        comments = comment(),
+        comments = null,
         copyright = "xxx",
-        likes = like(),
-        reposts = repost(),
+        likes = Like(),
+        reposts = Repost(),
         postType = "xxx",
         valSignerID = 1,
         camPin = false,
@@ -64,7 +63,7 @@ fun main() {
 
     println(Wall.add(mainPost))
 
-    val mainPost3 = post(
+    val mainPost3 = Post(
         id = 1,
         ownerID = 2,
         formID = 3,
@@ -74,10 +73,10 @@ fun main() {
         replyOwnerId = 0,
         replyPostId = 0,
         friendsOnly = false,
-        comments = comment(),
+        comments = null,
         copyright = "xxx",
-        likes = like(),
-        reposts = repost(),
+        likes = Like(),
+        reposts = Repost(),
         postType = "xxx",
         valSignerID = 1,
         camPin = false,
@@ -106,7 +105,7 @@ fun main() {
     )
 
 
-    val mainPost4 = post(
+    val mainPost4 = Post(
         id = 3,
         ownerID = 1,
         formID = 3,
@@ -116,10 +115,10 @@ fun main() {
         replyOwnerId = 0,
         replyPostId = 0,
         friendsOnly = false,
-        comments = comment(),
+        comments = null,
         copyright = "xxx",
-        likes = like(),
-        reposts = repost(),
+        likes = Like(),
+        reposts = Repost(),
         postType = "xxx",
         valSignerID = 1,
         camPin = false,

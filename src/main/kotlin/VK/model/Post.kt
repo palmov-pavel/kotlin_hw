@@ -1,9 +1,9 @@
 package VK.model
 
-import VK.model.attachments.AttachementType
+import VK.model.comments.Comment
 import VK.model.attachments.Attachment
 
-data class post(
+data class Post(
     val id: Int,
     val ownerID: Int,
     val formID: Int,
@@ -13,10 +13,10 @@ data class post(
     val replyOwnerId: Int,
     val replyPostId: Int,
     val friendsOnly: Boolean,
-    val comments: comment,
+    val comments: Comment?,
     val copyright: String,
-    val likes: like,
-    val reposts: repost,
+    val likes: Like,
+    val reposts: Repost,
     val postType: String,
     val valSignerID: Int,
     val camPin: Boolean,

@@ -1,22 +1,22 @@
 package VK.service
 
 import VK.model.attachments.*
-import VK.model.comment
-import VK.model.like
-import VK.model.post
-import VK.model.repost
+import VK.model.comments.Comment
+import VK.model.Post
+import VK.model.myExceptions.PostNotFoundException
 
 class WallService {
-    private var posts = emptyArray<post>()
+    private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
     private var uniqID = 1
 
-    fun add(post: post): post {
+    fun add(post: Post): Post {
         posts += post.copy(id = uniqID)
         uniqID++
         return posts.last()
     }
 
-    fun update(updPost: post): Boolean {
+    fun update(updPost: Post): Boolean {
         var result: Boolean = false
         for ((index, post) in posts.withIndex()) {
             if ((post.id == updPost.id) && ((post.ownerID == updPost.ownerID))) {
@@ -50,8 +50,8 @@ class WallService {
         return result
     }
 
-    fun getPost(id: Int): post? {
-        var result: post? = null
+    fun getPost(id: Int): Post? {
+        var result: Post? = null
         for ((index, post) in posts.withIndex()) {
             if (post.id == id) {
                 result = post
@@ -64,7 +64,7 @@ class WallService {
     }
 
 
-    fun addAttachment(updPost: post, obj: Attachment): Boolean {
+    fun addAttachment(updPost: Post, obj: Attachment): Boolean {
         var result: Boolean = false
 
         for ((index, post) in posts.withIndex()) {
@@ -80,5 +80,22 @@ class WallService {
         return result
     }
 
+    fun createComment(
+        ownerId: Int,
+        postId: Int,
+        from_group: Int = 0,
+        message: String?,
+        replyToComment: Int,
+        attachments: Array<Attachment?>,
+        stickerId: Int,
+        guid: String,
+        comment: Comment
+    ) {
+        for (post in posts) {
+            if (post.id == postId) {
+                comments += comment
+            } else throw PostNotFoundException("Пост с id=$postId не найден")
+        }
+    }
 
 }

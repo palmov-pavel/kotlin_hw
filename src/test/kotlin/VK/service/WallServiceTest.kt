@@ -2,10 +2,12 @@ package VK.service
 
 import VK.model.attachments.AttachementType
 import VK.model.attachments.LinkAttachment
-import VK.model.comment
-import VK.model.like
-import VK.model.post
-import VK.model.repost
+import VK.model.comments.Comment
+import VK.model.Like
+import VK.model.Post
+import VK.model.Repost
+
+
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -18,7 +20,7 @@ class WallServiceTest {
         // arrange
         var Wall = WallService()
 
-        val mainPost = post(
+        val mainPost = Post(
             id = 0,
             ownerID = 2,
             formID = 3,
@@ -28,10 +30,10 @@ class WallServiceTest {
             replyOwnerId = 0,
             replyPostId = 0,
             friendsOnly = false,
-            comments = comment(),
+            comments = null,
             copyright = "xxx",
-            likes = like(),
-            reposts = repost(),
+            likes = Like(),
+            reposts = Repost(),
             postType = "xxx",
             valSignerID = 1,
             camPin = false,
@@ -57,7 +59,7 @@ class WallServiceTest {
         // arrange
         var Wall = WallService()
 
-        val mainPost = post(
+        val mainPost = Post(
             id = 0,
             ownerID = 2,
             formID = 3,
@@ -67,10 +69,10 @@ class WallServiceTest {
             replyOwnerId = 0,
             replyPostId = 0,
             friendsOnly = false,
-            comments = comment(),
+            comments = null,
             copyright = "xxx",
-            likes = like(),
-            reposts = repost(),
+            likes = Like(),
+            reposts = Repost(),
             postType = "xxx",
             valSignerID = 1,
             camPin = false,
@@ -82,7 +84,7 @@ class WallServiceTest {
             attachments = arrayOf(null)
         )
 
-        val updateMainPost = post(
+        val updateMainPost = Post(
             id = 1,
             ownerID = 2,
             formID = 3,
@@ -92,10 +94,10 @@ class WallServiceTest {
             replyOwnerId = 0,
             replyPostId = 0,
             friendsOnly = false,
-            comments = comment(),
+            comments = null,
             copyright = "xxx2",
-            likes = like(),
-            reposts = repost(),
+            likes = Like(),
+            reposts = Repost(),
             postType = "xxx2",
             valSignerID = 1,
             camPin = false,
@@ -124,7 +126,7 @@ class WallServiceTest {
         // arrange
         var Wall = WallService()
 
-        val mainPost = post(
+        val mainPost = Post(
             id = 0,
             ownerID = 2,
             formID = 3,
@@ -134,10 +136,10 @@ class WallServiceTest {
             replyOwnerId = 0,
             replyPostId = 0,
             friendsOnly = false,
-            comments = comment(),
+            comments = null,
             copyright = "xxx",
-            likes = like(),
-            reposts = repost(),
+            likes = Like(),
+            reposts = Repost(),
             postType = "xxx",
             valSignerID = 1,
             camPin = false,
@@ -149,7 +151,7 @@ class WallServiceTest {
             attachments = arrayOf(null)
         )
 
-        val updateMainPost = post(
+        val updateMainPost = Post(
             id = 2,
             ownerID = 2,
             formID = 3,
@@ -159,10 +161,10 @@ class WallServiceTest {
             replyOwnerId = 0,
             replyPostId = 0,
             friendsOnly = false,
-            comments = comment(),
+            comments = null,
             copyright = "xxx2",
-            likes = like(),
-            reposts = repost(),
+            likes = Like(),
+            reposts = Repost(),
             postType = "xxx2",
             valSignerID = 1,
             camPin = false,
@@ -192,7 +194,7 @@ class WallServiceTest {
         var Wall = WallService()
         val link1: LinkAttachment = LinkAttachment(AttachementType.link,"http:\\abc.ru", "ABC", "abc", "xxx", null, null, null, null, null)
 
-        val mainPost = post(
+        val mainPost = Post(
             id = 1,
             ownerID = 2,
             formID = 3,
@@ -202,10 +204,10 @@ class WallServiceTest {
             replyOwnerId = 0,
             replyPostId = 0,
             friendsOnly = false,
-            comments = comment(),
+            comments = null,
             copyright = "xxx",
-            likes = like(),
-            reposts = repost(),
+            likes = Like(),
+            reposts = Repost(),
             postType = "xxx",
             valSignerID = 1,
             camPin = false,
